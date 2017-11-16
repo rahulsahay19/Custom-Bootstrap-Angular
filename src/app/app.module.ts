@@ -3,6 +3,7 @@ import { NgModule } from '@angular/core';
 
 
 import { AppComponent } from './app.component';
+import { APIService, ApiConfig } from './api-service';
 
 
 @NgModule({
@@ -12,7 +13,8 @@ import { AppComponent } from './app.component';
   imports: [
     BrowserModule
   ],
-  providers: [],
+  // providers:[APIService,ApiConfig],
+  providers: [{provide: "api.config", useFactory: () => window['appdata']}],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
